@@ -1,4 +1,10 @@
 <?php
+// Allow all origins (you can restrict this to specific domains for security)
+header("Access-Control-Allow-Origin: *"); // Allow all domains (you can specify a domain if necessary)
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS"); // Allow GET, POST, and OPTIONS methods
+header("Access-Control-Allow-Headers: Content-Type"); // Allow certain headers
+
+
 
 $superheroes = [
   [
