@@ -3,6 +3,10 @@
 header("Access-Control-Allow-Origin: *"); // Allow all domains (you can specify a domain if necessary)
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS"); // Allow GET, POST, and OPTIONS methods
 header("Access-Control-Allow-Headers: Content-Type"); // Allow certain headers
+header('Content-Type: application/json'); // Ensures the response is treated as JSON
+error_reporting(E_ERROR | E_PARSE); // Suppress warnings and notices
+ob_clean(); // Clear any unwanted output before JSON
+
 
 
 
@@ -69,10 +73,40 @@ $superheroes = [
   ], 
 ];
 
-?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+$query = isset($_GET['query']) ? htmlspecialchars(trim($_GET['query'])) : '';
+
+$result = [];
+
+if (isset($_GET['query'])) {
+    $ans= [];
+    // Get the value of 'name' from the query string
+    $name = htmlspecialchars($_GET['query']); // Sanitize input to prevent XSS
+
+
+    foreach($superheroes as $heroes) {
+    if ($name == $heroes["alias"] || $name == $heroes["name"]){
+        $ans[] = [
+            "id" => $heroes["id"],
+            "name" => $heroes["name"],
+            "alias" => $heroes["alias"],
+            "biography" => $heroes["biography"]
+        ];
+    }
+    // Send a response back to the client
+    // echo htmlspecialchars(json_encode($ans));
+    }
+echo json_encode($ans);
+}
+
+else{
+    ?>
+    <ul>
+    <?php foreach ($superheroes as $superhero): ?>
+    <li><?= $superhero['alias']; ?></li>
+    <?php endforeach; ?>
+    </ul>
+
+    <?php
+}
+?> 
