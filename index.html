@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <head class="a">
-        <Title>Avengers Character Search</Title>
-        <h1>Avengers Character Search</h1>
+    <head>
         <link rel="stylesheet" href="styles.css">
+        <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
         <script src="app.js"></script>
+        <Title>Avengers Character Search</Title>
     </head>
-    <body class="b">
-        <p>Search by Full Name or Alias</p>
-            <input type="text" id="name" name="hero_name" size="100" placeholder="e.g. Captain America or Steve Rogers">
-        <!-- <button id="a">Search</button> -->
+    <body>
+        <div class="search-section">
+        <header>
+        <!-- <header id="box1"> -->
+            <h1 id="t">Avengers Character Search</h1>
+        </header>
+        <main>
+            <p>Search by Full Name or Alias</p>
+            <div class="search-section">
+            <input type="text" class="search-box" id="name" name="hero_name" size="100" placeholder="e.g. Captain America or Steve Rogers">
         <button id="a">Search</button>
+        <h2>RESULT</h2>
         <h3 id="3" > </h4>
         <h4 id="2"> </h3>
         <p id="1"> </p>
         <ul id="superheroes-list"></ul>
-        
+                </div>
+            </main>
+        </div>
     </body>
 </html>

@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var button1 = document.getElementById('a')
+    var button1 = document.getElementById('a');
     // var data = document.getElementById('superheroes-list')
 
 button1.addEventListener("click", function () {
-    var input = document. getElementById("name").value.trim()
+    var input = document. getElementById("name").value.trim();
     fetch('superheroes.php')
         .then(response => {
             if (!response.ok) {
